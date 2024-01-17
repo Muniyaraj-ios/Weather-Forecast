@@ -51,7 +51,7 @@ class ForecastWeatherServiceVM: NSObject,ObservableObject{
                         self.forecastReqData.weatherData = weatherData
                         self.customizeListData(self.forecastReqData.weatherData?.list ?? [])
                     }else{
-                        let error_desc = weatherData.cod == "404" ? "Search Result not found! '\(name)'\ncheck the city name or zipcode is correct" : "\(weatherData.message)"
+                        let error_desc = weatherData.cod == "404" ? "Search Result not found! '\(name)'\ncheck if the city name or zipcode is correct" : "\(weatherData.message)"
                         self.forecastReqData.isError = NSError(domain: "com.weatherforecast.app", code: Int(weatherData.cod) ?? 0, userInfo: [NSLocalizedDescriptionKey: error_desc,NSDebugDescriptionErrorKey: "Problem with Request"])
                     }
                     case .failure(let error):
