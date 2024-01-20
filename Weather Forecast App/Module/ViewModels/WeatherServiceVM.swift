@@ -93,7 +93,7 @@ extension WeatherServiceVM{
                         //print("Weather in \(weatherResponse.name): \(weatherResponse.weather[0].description) | \(weatherResponse.main.temp)")
                     }else{
                         let error_desc = weatherResponse.cod == 404 ? "Search Result not found! '\(name)'" : "\(weatherResponse.message)"
-                        self.forecastReqData.isError = NSError(domain: "com.weatherforecast.app", code: weatherResponse.cod, userInfo: [NSLocalizedDescriptionKey: error_desc,NSDebugDescriptionErrorKey: "Problem with Request"])
+                        self.weatherReqData.isError = NSError(domain: "com.weatherforecast.app", code: weatherResponse.cod, userInfo: [NSLocalizedDescriptionKey: error_desc,NSDebugDescriptionErrorKey: "Problem with Request"])
                     }
                     case .failure(let error):
                     self.weatherReqData.weatherData = nil
@@ -174,4 +174,16 @@ extension WeatherServiceVM{
             forecastReqData.listData.removeValue(forKey: keyToRemove)
         }
     }
+}
+struct CurrentWeatherRequest {
+    var isLoading: Bool = false
+    var weatherData: WeatherResponse? = nil
+    var isError: Error? = nil
+}
+struct ForecastWeatherRequest {
+    var isLoading: Bool = false
+    var weatherData: WeatherData? = nil
+    var isError: Error? = nil
+    var listData: [String: [WeatherData.WeatherDetails]] = [:]
+    var currentListData: [WeatherData.WeatherDetails] = []
 }

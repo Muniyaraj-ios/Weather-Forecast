@@ -9,7 +9,7 @@ import Foundation
 
 class APIService{
     private let baseURL = "https://api.openweathermap.org/"
-    private let apikey = "8d9e021a91501c3792da59fee7e913a8"
+    private let apikey = ""
 
     func fetchWeatherData<T: Codable>(endPoints: APIEndPoints,completion: @escaping (Result<T, Error>) -> Void) {
         guard let URL = URL(string: baseURL + endPoints.value + apikey)else{return}

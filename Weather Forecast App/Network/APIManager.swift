@@ -47,7 +47,7 @@ public typealias Parameters = [String: Any]
 
 class APIManger{
     private let baseURL = "https://api.openweathermap.org/"
-    private let apikey = "8d9e021a91501c3792da59fee7e913a8"
+    private let apikey = "8d9e021a91501c3792da59fee7e913a8" // Paste Here the API key, Weather API key are Attached in the Documentations.
     
     typealias CompletionHandler<T> = (Results<T,Error>) -> Void
     

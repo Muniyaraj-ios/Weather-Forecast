@@ -100,13 +100,15 @@ struct MainView: View {
                         }
                     }else if let error = weatherVM.weatherReqData.isError{
                         Text(error.localizedDescription)
-                            .customText(fontSize: 22,fontWeight: .semibold)
+                            .customText(fontSize: 18,fontWeight: .regular).padding(.horizontal, 12)
+                            .multilineTextAlignment(.center)
                     }else if weatherVM.isLocLoading{
                         VStack{
                             ProgressView()
                                 .frame(width: 40, height: 40)
-                            Text("Fetching Weather based on your Location ")
-                                .customText(fontSize: 18,fontWeight: .medium)
+                            Text("processing...\nWeather based on your Location ")
+                                .multilineTextAlignment(.center)
+                                .customText(fontSize: 18,fontWeight: .regular).padding(.horizontal, 12)
                         }.padding(.vertical, 20)
                     }
                 }

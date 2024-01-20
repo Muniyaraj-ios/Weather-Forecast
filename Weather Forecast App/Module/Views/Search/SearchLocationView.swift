@@ -68,23 +68,22 @@ struct SearchLocationView: View {
 
                 }.padding(.vertical,15).background(Color.teal)
                 if forecastServiceVM.forecastReqData.isLoading{
-                    VStack{
                         Spacer()
                         VStack{
                             ProgressView()
                                 .frame(width: 40, height: 40)
                             Text("processing...\nWeather results based on your search '\(previousSearch)'")
                                 .customText(fontSize: 17,fontWeight: .regular)
-                                .padding(.vertical, 14)
+                                .padding(.horizontal, 14)
                                 .multilineTextAlignment(.center)
                         }
                         Spacer()
-                    }
                 }else if let error = forecastServiceVM.forecastReqData.isError{
                     Spacer()
                     VStack{
                         Text(error.localizedDescription)
                             .multilineTextAlignment(.center)
+                            .padding(.horizontal, 14)
                             .customText(fontSize: 18,fontWeight: .regular)
                     }
                     Spacer()
