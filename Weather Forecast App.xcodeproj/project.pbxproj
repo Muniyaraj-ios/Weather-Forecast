@@ -215,12 +215,12 @@
 		18E52D762B51424100A9D8B8 /* Weather Forecast App */ = {
 			isa = PBXGroup;
 			children = (
+				18E52D772B51424100A9D8B8 /* Weather_Forecast_AppApp.swift */,
+				18E52D792B51424100A9D8B8 /* ContentView.swift */,
 				180BED802B57D76F00925E23 /* Weather-Forecast-App-Info.plist */,
 				18E52DA22B51429800A9D8B8 /* Network */,
 				180BED762B57C0CD00925E23 /* Module */,
 				180E67782B53DD77007BAF91 /* Extension */,
-				18E52D772B51424100A9D8B8 /* Weather_Forecast_AppApp.swift */,
-				18E52D792B51424100A9D8B8 /* ContentView.swift */,
 				18E52D7B2B51424200A9D8B8 /* Assets.xcassets */,
 				18E52D7D2B51424200A9D8B8 /* Weather_Forecast_App.entitlements */,
 				18E52D7E2B51424200A9D8B8 /* Preview Content */,

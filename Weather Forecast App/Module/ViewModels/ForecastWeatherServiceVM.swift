@@ -24,12 +24,14 @@ class ForecastWeatherServiceVM: NSObject,ObservableObject{
                 switch result {
                     case .success(let weatherResponse):
                     if weatherResponse.cod == 200{
+                        self.weatherReqData.isError = nil
                         self.weatherReqData.weatherData = weatherResponse
                     }else{
                         let error_desc = weatherResponse.cod == 404 ? "Search Result not found! '\(name)'" : "\(weatherResponse.message)"
-                        self.forecastReqData.isError = NSError(domain: "com.weatherforecast.app", code: weatherResponse.cod, userInfo: [NSLocalizedDescriptionKey: error_desc,NSDebugDescriptionErrorKey: "Problem with Request"])
+                        self.weatherReqData.isError = NSError(domain: "com.weatherforecast.app", code: weatherResponse.cod, userInfo: [NSLocalizedDescriptionKey: error_desc,NSDebugDescriptionErrorKey: "Problem with Request"])
                     }
                     case .failure(let error):
+                    self.weatherReqData.weatherData = nil
                     self.weatherReqData.isError = error
                     print("Error fetching weather data: \(error)")
                }
